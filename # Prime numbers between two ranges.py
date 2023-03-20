@@ -1,15 +1,16 @@
 # Prime numbers between two ranges
 
+a,b = input("Enter two numbers to define a range to print the prime numbers in between: ").split()
 
-set_range = list(int(input("Enter two numbers to define a range to print the prime numbers in between: ")) for i in range(2))
-
-set_range = sorted(set_range)
+a,b = int(a),int(b)
 
 prime_set = set()
 
-print(set_range)
+if a > b:
 
-for i in range(set_range[0],set_range[1]+1):
+    a,b = b,a
+
+for i in range(a,b+1):
 
     for k in range(2,i):
 
@@ -20,9 +21,15 @@ for i in range(set_range[0],set_range[1]+1):
     else:
 
         prime_set.add(i)
-            
 
-print(sorted(prime_set))
+        
+if a == b or len(prime_set) == 0:
+
+    print("No prime numbers in between")
+
+else:
+    
+    print(sorted(prime_set))
 
 
 
